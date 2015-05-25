@@ -1,0 +1,38 @@
+# Qt Files #
+############
+*.pro.user
+*.autosave
+*.5pre1
+moc_*.h
+moc_*.cpp
+ui_*.h
+qrc_Resources.cpp
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+*.exp
+
+# Other
+Makefile
+*.Debug
+*.Release
+*.dll
+*.exe
+*.DS_Store
+*.tlog
+*.lastbuildstate
+*.unsuccessfulbuild
+Velocity/Velocity
