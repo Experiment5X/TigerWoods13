@@ -13,14 +13,16 @@ TEMPLATE = app
 
 CONFIG += c++11
 
-win32:LIBS += -LC:\Users\Adam\Desktop\VelocityClone\XboxInternals-Win\debug\XboxInternals.dll
-win32:INCLUDEPATH += C:\Users\Adam\Desktop\VelocityClone\XboxInternals
-
 SOURCES += main.cpp\
         MainWindow.cpp \
-    TigerWoodsUserFile.cpp
+    TigerWoodsUserFile.cpp \
+    IO/FileIO.cpp \
+    IO/BaseIO.cpp
 
 HEADERS  += MainWindow.h \
-    TigerWoodsUserFile.h
+    TigerWoodsUserFile.h \
+    winnames.h \
+    IO/FileIO.h \
+    IO/BaseIO.h
 
 FORMS    += MainWindow.ui
