@@ -2,13 +2,15 @@
 #define TIGERWOODSUSERFILE_H
 
 #include <QString>
+#include <QObject>
 
 #include <memory>
 
 #include "IO/BaseIO.h"
 
-class TigerWoodsUserFile
+class TigerWoodsUserFile : public QObject
 {
+    Q_OBJECT
 public:
     explicit TigerWoodsUserFile(std::shared_ptr<BaseIO> userFile);
 
