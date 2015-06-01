@@ -8,13 +8,13 @@
 
 int main(int argc, char *argv[])
 {
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
-    return a.exec();*/
+    return a.exec();
 
-    try
+    /*try
     {
         std::shared_ptr<FileIO> userFile(new FileIO("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\All Skills 100 Adam\\13-User 0"));
         TigerWoodsUserFile userData(userFile);\
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     catch (std::string s)
     {
         qDebug() << QString::fromStdString(s);
-    }
+    }*/
 
     return 0;
 }
