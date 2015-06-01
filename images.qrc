@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/tiger woods thumbnail.png</file>
+    </qresource>
+</RCC>

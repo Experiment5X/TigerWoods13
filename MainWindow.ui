@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Tiger Woods 2013</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="images.qrc">
+    <normaloff>:/images/images/tiger woods thumbnail.png</normaloff>:/images/images/tiger woods thumbnail.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
@@ -478,6 +482,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
