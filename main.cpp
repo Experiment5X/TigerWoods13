@@ -16,9 +16,22 @@ int main(int argc, char *argv[])
 
     try
     {
-        std::shared_ptr<FileIO> userFile(new FileIO("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\Adam Skills 52 51 48 37 36 35\\13-User 0"));
-        TigerWoodsUserFile userData(userFile);
+        std::shared_ptr<FileIO> userFile(new FileIO("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\All Skills 100 Adam\\13-User 0"));
+        TigerWoodsUserFile userData(userFile);\
+
         qDebug() << userData.name();
+        qDebug() << "XP Earned: " << userData.xpEarned();
+        qDebug() << "XP Spent: " << userData.xpSpent();
+
+        qDebug() << endl << "Stats";
+        qDebug() << "\tLongest Drive: " << userData.longestDrive() << "yds";
+        qDebug() << "\tLongest Putt: " << userData.longestPutt() << "ft";
+        qDebug() << "\tDouble Eagles: " << userData.doubleEagles();
+        qDebug() << "\tEagles: " << userData.eagles();
+        qDebug() << "\tBirdies: " << userData.birdies();
+        qDebug() << "\tPars: " << userData.pars();
+        qDebug() << "\tBogeys: " << userData.bogeys();
+        qDebug() << "\tDouble Bogeys: " << userData.doubleBogeys();
     }
     catch (std::exception ex)
     {
