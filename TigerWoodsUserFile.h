@@ -12,7 +12,7 @@ class TigerWoodsUserFile : public QObject
 {
     Q_OBJECT
 public:
-    explicit TigerWoodsUserFile(std::shared_ptr<BaseIO> userFile);
+    TigerWoodsUserFile(std::shared_ptr<BaseIO> userFile, QObject *parent = nullptr);
 
     QString name() const;
     void setName(const QString &name);

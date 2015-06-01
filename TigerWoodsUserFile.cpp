@@ -1,7 +1,7 @@
 #include "TigerWoodsUserFile.h"
 
-TigerWoodsUserFile::TigerWoodsUserFile(std::shared_ptr<BaseIO> userFile) :
-    m_userFile(userFile)
+TigerWoodsUserFile::TigerWoodsUserFile(std::shared_ptr<BaseIO> userFile, QObject *parent) :
+    m_userFile(userFile), QObject(parent)
 {
     readFile();
 }
