@@ -29,12 +29,27 @@ void MainWindow::on_actionOpen_triggered()
         ui->spnXpEarned->setValue(m_userFile->xpEarned());
         ui->spnXpSpent->setValue(m_userFile->xpSpent());
         ui->spnXpBalance->setValue(m_userFile->xpEarned() - m_userFile->xpSpent());
+        ui->spnLongestDrive->setValue(m_userFile->longestDrive());
+        ui->spnLongestPutt->setValue(m_userFile->longestPutt());
         ui->spnDoubleEagles->setValue(m_userFile->doubleEagles());
         ui->spnEagles->setValue(m_userFile->eagles());
         ui->spnBirdies->setValue(m_userFile->birdies());
         ui->spnPars->setValue(m_userFile->pars());
         ui->spnBogeys->setValue(m_userFile->bogeys());
         ui->spnDoubleBogeys->setValue(m_userFile->doubleBogeys());
+
+        // enable the GUI elements
+        ui->spnXpEarned->setEnabled(true);
+        ui->spnXpSpent->setEnabled(true);
+        ui->spnXpBalance->setEnabled(true);
+        ui->spnLongestDrive->setEnabled(true);
+        ui->spnLongestPutt->setEnabled(true);
+        ui->spnDoubleEagles->setEnabled(true);
+        ui->spnEagles->setEnabled(true);
+        ui->spnBirdies->setEnabled(true);
+        ui->spnPars->setEnabled(true);
+        ui->spnBogeys->setEnabled(true);
+        ui->spnDoubleBogeys->setEnabled(true);
     }
     catch (std::string s)
     {
