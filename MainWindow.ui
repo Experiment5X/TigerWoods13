@@ -139,6 +139,12 @@
                   <property name="enabled">
                    <bool>false</bool>
                   </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                  <property name="buttonSymbols">
+                   <enum>QAbstractSpinBox::NoButtons</enum>
+                  </property>
                   <property name="minimum">
                    <number>-214748364</number>
                   </property>
