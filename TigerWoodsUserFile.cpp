@@ -105,6 +105,60 @@ void TigerWoodsUserFile::setDoubleBogeys(int doubleBogeys)
 {
     m_doubleBogeys = doubleBogeys;
 }
+int TigerWoodsUserFile::power() const
+{
+    return m_power;
+}
+
+void TigerWoodsUserFile::setPower(int power)
+{
+    m_power = power;
+}
+int TigerWoodsUserFile::accuracy() const
+{
+    return m_accuracy;
+}
+
+void TigerWoodsUserFile::setAccuracy(int accuracy)
+{
+    m_accuracy = accuracy;
+}
+int TigerWoodsUserFile::workability() const
+{
+    return m_workability;
+}
+
+void TigerWoodsUserFile::setWorkability(int workability)
+{
+    m_workability = workability;
+}
+int TigerWoodsUserFile::spin() const
+{
+    return m_spin;
+}
+
+void TigerWoodsUserFile::setSpin(int spin)
+{
+    m_spin = spin;
+}
+int TigerWoodsUserFile::recovery() const
+{
+    return m_recovery;
+}
+
+void TigerWoodsUserFile::setRecovery(int recovery)
+{
+    m_recovery = recovery;
+}
+int TigerWoodsUserFile::putting() const
+{
+    return m_putting;
+}
+
+void TigerWoodsUserFile::setPutting(int putting)
+{
+    m_putting = putting;
+}
 
 void TigerWoodsUserFile::readFile()
 {
@@ -114,21 +168,30 @@ void TigerWoodsUserFile::readFile()
     m_userFile->SetPosition(0x20);
     m_name = QString::fromStdString(m_userFile->ReadString());
 
+    // read the skills
+    m_userFile->SetPosition(0x117C0);
+    m_power = (int)(m_userFile->ReadFloat() * 100);
+    m_accuracy = (int)(m_userFile->ReadFloat() * 100);
+    m_workability = (int)(m_userFile->ReadFloat() * 100);
+    m_spin = (int)(m_userFile->ReadFloat() * 100);
+    m_recovery = (int)(m_userFile->ReadFloat() * 100);
+    m_putting = (int)(m_userFile->ReadFloat() * 100);
+
     // read the xp info
     m_userFile->SetPosition(0x117FC);
-    m_xpEarned = m_userFile->ReadDword();
-    m_xpSpent = m_userFile->ReadDword();
+    m_xpEarned = m_userFile->ReadInt32();
+    m_xpSpent = m_userFile->ReadInt32();
 
     // read the stats
     m_userFile->SetPosition(0x118FC);
-    m_longestDrive = m_userFile->ReadDword();
-    m_longestPutt = m_userFile->ReadDword();
+    m_longestDrive = m_userFile->ReadInt32();
+    m_longestPutt = m_userFile->ReadInt32();
 
     m_userFile->SetPosition(0x1190C);
-    m_doubleEagles = m_userFile->ReadDword();
-    m_eagles = m_userFile->ReadDword();
-    m_birdies = m_userFile->ReadDword();
-    m_pars = m_userFile->ReadDword();
-    m_bogeys = m_userFile->ReadDword();
-    m_doubleBogeys = m_userFile->ReadDword();
+    m_doubleEagles = m_userFile->ReadInt32();
+    m_eagles = m_userFile->ReadInt32();
+    m_birdies = m_userFile->ReadInt32();
+    m_pars = m_userFile->ReadInt32();
+    m_bogeys = m_userFile->ReadInt32();
+    m_doubleBogeys = m_userFile->ReadInt32();
 }

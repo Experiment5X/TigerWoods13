@@ -47,8 +47,27 @@ public:
     int doubleBogeys() const;
     void setDoubleBogeys(int doubleBogeys);
 
+    int power() const;
+    void setPower(int power);
+
+    int accuracy() const;
+    void setAccuracy(int accuracy);
+
+    int workability() const;
+    void setWorkability(int workability);
+
+    int spin() const;
+    void setSpin(int spin);
+
+    int recovery() const;
+    void setRecovery(int recovery);
+
+    int putting() const;
+    void setPutting(int putting);
+
 private:
     QString m_name;
+
     int m_xpEarned;
     int m_xpSpent;
     int m_longestDrive;
@@ -59,6 +78,13 @@ private:
     int m_pars;
     int m_bogeys;
     int m_doubleBogeys;
+
+    int m_power;
+    int m_accuracy;
+    int m_workability;
+    int m_spin;
+    int m_recovery;
+    int m_putting;
 
     std::shared_ptr<BaseIO> m_userFile;
 
