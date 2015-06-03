@@ -38,6 +38,14 @@ void TigerWoodsTigerLegacyChallenge::setComplete(int partIndex, bool complete)
 {
     m_complete.replace(partIndex, complete);
 }
+
+bool TigerWoodsTigerLegacyChallenge::fullyComplete() const
+{
+    bool toReturn = true;
+    for (bool complete : m_complete)
+        toReturn = toReturn && complete;
+    return toReturn;
+}
 int TigerWoodsTigerLegacyChallenge::partCount() const
 {
     return m_partCount;

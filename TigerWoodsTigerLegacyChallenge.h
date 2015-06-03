@@ -20,6 +20,9 @@ public:
     QList<bool> complete() const;
     void setComplete(int partIndex, bool complete);
 
+    // true if all the parts of the challenge are completed
+    bool fullyComplete() const;
+
     // the number of parts to the challenge, for example some challenges have a putting, chipping, and driving part
     int partCount() const;
     void setPartCount(int partCount);
