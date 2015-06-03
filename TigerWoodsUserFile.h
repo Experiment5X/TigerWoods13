@@ -65,13 +65,60 @@ public:
     int putting() const;
     void setPutting(int putting);
 
+    int roundsPlayed() const;
+    void setRoundsPlayed(int roundsPlayed);
+
+    int totalScore() const;
+    void setTotalScore(int totalScore);
+
+    float averageScore() const;
+
+    int madePutts() const;
+    void setMadePutts(int madePutts);
+
+    int totalPutts() const;
+    void setTotalPutts(int totalPutts);
+
+    int totalDrives() const;
+    void setTotalDrives(int totalDrives);
+
+    int totalYardsDriven() const;
+    void setTotalYardsDriven(int totalYardsDriven);
+
+    int totalFIRAttempts() const;
+    void setTotalFIRAttempts(int totalFIRAttempts);
+
+    int totalFIRs() const;
+    void setTotalFIRs(int totalFIRs);
+
+    int totalGIRAttempts() const;
+    void setTotalGIRAttempts(int totalGIRAttempts);
+
+    int totalGIRs() const;
+    void setTotalGIRs(int totalGIRs);
+
+    int holesInOne() const;
+    void setHolesInOne(int holesInOne);
+
 private:
     QString m_name;
 
     int m_xpEarned;
     int m_xpSpent;
+
+    int m_roundsPlayed;
+    int m_totalScore;
+    int m_madePutts;
+    int m_totalPutts;
+    int m_totalDrives;
+    int m_totalYardsDriven;
+    int m_totalFIRAttempts;
+    int m_totalFIRs;
+    int m_totalGIRAttempts;
+    int m_totalGIRs;
     int m_longestDrive;
     int m_longestPutt;
+    int m_holesInOne;
     int m_doubleEagles;
     int m_eagles;
     int m_birdies;

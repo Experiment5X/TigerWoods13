@@ -159,6 +159,121 @@ void TigerWoodsUserFile::setPutting(int putting)
 {
     m_putting = putting;
 }
+int TigerWoodsUserFile::roundsPlayed() const
+{
+    return m_roundsPlayed;
+}
+
+void TigerWoodsUserFile::setRoundsPlayed(int roundsPlayed)
+{
+    m_roundsPlayed = roundsPlayed;
+}
+int TigerWoodsUserFile::totalScore() const
+{
+    return m_totalScore;
+}
+
+void TigerWoodsUserFile::setTotalScore(int totalScore)
+{
+    m_totalScore = totalScore;
+}
+
+float TigerWoodsUserFile::averageScore() const
+{
+    return (float)m_totalScore / m_roundsPlayed;
+}
+int TigerWoodsUserFile::madePutts() const
+{
+    return m_madePutts;
+}
+
+void TigerWoodsUserFile::setMadePutts(int madePutts)
+{
+    m_madePutts = madePutts;
+}
+int TigerWoodsUserFile::totalPutts() const
+{
+    return m_totalPutts;
+}
+
+void TigerWoodsUserFile::setTotalPutts(int totalPutts)
+{
+    m_totalPutts = totalPutts;
+}
+int TigerWoodsUserFile::totalDrives() const
+{
+    return m_totalDrives;
+}
+
+void TigerWoodsUserFile::setTotalDrives(int totalDrives)
+{
+    m_totalDrives = totalDrives;
+}
+int TigerWoodsUserFile::totalYardsDriven() const
+{
+    return m_totalYardsDriven;
+}
+
+void TigerWoodsUserFile::setTotalYardsDriven(int totalYardsDriven)
+{
+    m_totalYardsDriven = totalYardsDriven;
+}
+int TigerWoodsUserFile::totalFIRAttempts() const
+{
+    return m_totalFIRAttempts;
+}
+
+void TigerWoodsUserFile::setTotalFIRAttempts(int totalFIRAttempts)
+{
+    m_totalFIRAttempts = totalFIRAttempts;
+}
+int TigerWoodsUserFile::totalFIRs() const
+{
+    return m_totalFIRs;
+}
+
+void TigerWoodsUserFile::setTotalFIRs(int totalFIRs)
+{
+    m_totalFIRs = totalFIRs;
+}
+int TigerWoodsUserFile::totalGIRAttempts() const
+{
+    return m_totalGIRAttempts;
+}
+
+void TigerWoodsUserFile::setTotalGIRAttempts(int totalGIRAttempts)
+{
+    m_totalGIRAttempts = totalGIRAttempts;
+}
+int TigerWoodsUserFile::totalGIRs() const
+{
+    return m_totalGIRs;
+}
+
+void TigerWoodsUserFile::setTotalGIRs(int totalGIRs)
+{
+    m_totalGIRs = totalGIRs;
+}
+int TigerWoodsUserFile::holesInOne() const
+{
+    return m_holesInOne;
+}
+
+void TigerWoodsUserFile::setHolesInOne(int holesInOne)
+{
+    m_holesInOne = holesInOne;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 void TigerWoodsUserFile::readFile()
 {
@@ -183,11 +298,22 @@ void TigerWoodsUserFile::readFile()
     m_xpSpent = m_userFile->ReadInt32();
 
     // read the stats
-    m_userFile->SetPosition(0x118FC);
+    m_userFile->SetPosition(0x118D4);
+    m_totalScore = m_userFile->ReadInt32();
+    m_roundsPlayed = m_userFile->ReadInt32();
+    m_madePutts = m_userFile->ReadInt32();
+    m_totalPutts = m_userFile->ReadInt32();
+    m_totalDrives = m_userFile->ReadInt32();
+    m_totalYardsDriven = m_userFile->ReadInt32();
+    m_totalFIRAttempts = m_userFile->ReadInt32();
+    m_totalFIRs = m_userFile->ReadInt32();
+    m_totalGIRAttempts = m_userFile->ReadInt32();
+    m_totalGIRs = m_userFile->ReadInt32();
     m_longestDrive = m_userFile->ReadInt32();
     m_longestPutt = m_userFile->ReadInt32();
 
-    m_userFile->SetPosition(0x1190C);
+    m_userFile->SetPosition(0x11908);
+    m_holesInOne = m_userFile->ReadInt32();
     m_doubleEagles = m_userFile->ReadInt32();
     m_eagles = m_userFile->ReadInt32();
     m_birdies = m_userFile->ReadInt32();
