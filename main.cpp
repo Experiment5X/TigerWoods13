@@ -9,13 +9,13 @@
 
 int main(int argc, char *argv[])
 {
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
-    return a.exec();*/
+    return a.exec();
 
-    std::shared_ptr<FileIO> progressFile = std::make_shared<FileIO>("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\Adam Tiger Legacy\\Finished Junior Years\\13-Progress");
+    /*std::shared_ptr<FileIO> progressFile = std::make_shared<FileIO>("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\Adam Tiger Legacy\\Finished Junior Years\\13-Progress");
     TigerWoodsProgressFile progressData(progressFile);
 
     for (TigerWoodsTigerLegacyChallenge *challenge : progressData.legacyChallenges())
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
         qDebug() << challenge->name();
         for (bool partComplete : challenge->complete())
             qDebug() << "\t" << partComplete;
-    }
+    }*/
 
     /*try
     {

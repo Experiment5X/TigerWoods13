@@ -50,9 +50,62 @@ void MainWindow::on_actionOpen_triggered()
         ui->spnPars->setEnabled(true);
         ui->spnBogeys->setEnabled(true);
         ui->spnDoubleBogeys->setEnabled(true);
+        ui->tabWidget->setEnabled(true);
+        ui->tabWidget->setCurrentIndex(0);
+
     }
     catch (std::string s)
     {
         QMessageBox::critical(this, "Error", QString("An error occurred while reading the user file.\n") + QString::fromStdString(s));
+    }
+}
+
+void MainWindow::on_actionOpen_Progress_File_triggered()
+{
+    try
+    {
+        QString filePath = QFileDialog::getOpenFileName(this, "Find your 13-Progress file");
+        if (filePath.length() == 0)
+            return;
+
+        // parse the user file
+        std::shared_ptr<FileIO> userFileIO = std::make_shared<FileIO>(filePath.toStdString());
+        m_progressFile = new TigerWoodsProgressFile(userFileIO, this);
+
+        // populate the tree widget with the legacy progress
+        QString prevChallengeSection = "";
+        QTreeWidgetItem *curSectionItem = nullptr;
+        for (TigerWoodsTigerLegacyChallenge *challenge : m_progressFile->legacyChallenges())
+        {
+            // check to see if we need to create another section item
+            if (challenge->section() != prevChallengeSection)
+            {
+                prevChallengeSection = challenge->section();
+
+                // create a tree widget item for the legacy challenge section
+                curSectionItem = new QTreeWidgetItem(ui->treeLegacyChallenges);
+                curSectionItem->setText(0, challenge->section());
+                curSectionItem->setExpanded(true);
+                ui->treeLegacyChallenges->addTopLevelItem(curSectionItem);
+            }
+
+            // create a tree widget item for the challenge
+            QTreeWidgetItem *challengeItem = new QTreeWidgetItem(curSectionItem);
+            challengeItem->setText(0, challenge->name());
+            challengeItem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
+
+            // the item should be checked if the challenge is fully completed
+            Qt::CheckState checkState = (challenge->fullyComplete()) ? Qt::Checked : Qt::Unchecked;
+            challengeItem->setCheckState(0, checkState);
+        }
+
+        // enable the necessary widgets
+        ui->treeLegacyChallenges->setEnabled(true);
+        ui->tabWidget->setEnabled(true);
+        ui->tabWidget->setCurrentIndex(1);
+    }
+    catch (std::string s)
+    {
+        QMessageBox::critical(this, "Error", QString("An error occurred while reading the progress file.\n") + QString::fromStdString(s));
     }
 }

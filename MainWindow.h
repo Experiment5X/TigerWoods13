@@ -9,6 +9,7 @@
 #include "IO/FileIO.h"
 #include "IO/BaseIO.h"
 #include "TigerWoodsUserFile.h"
+#include "TigerWoodsProgressFile.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,9 +26,12 @@ public:
 private slots:
     void on_actionOpen_triggered();
 
+    void on_actionOpen_Progress_File_triggered();
+
 private:
     Ui::MainWindow *ui;
     TigerWoodsUserFile *m_userFile;
+    TigerWoodsProgressFile *m_progressFile;
 };
 
 #endif // MAINWINDOW_H
