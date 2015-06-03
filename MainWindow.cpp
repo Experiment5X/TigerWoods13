@@ -29,6 +29,12 @@ void MainWindow::on_actionOpen_triggered()
         ui->spnXpEarned->setValue(m_userFile->xpEarned());
         ui->spnXpSpent->setValue(m_userFile->xpSpent());
         ui->spnXpBalance->setValue(m_userFile->xpEarned() - m_userFile->xpSpent());
+        ui->spnPower->setValue(m_userFile->power());
+        ui->spnAccuracy->setValue(m_userFile->accuracy());
+        ui->spnWorkability->setValue(m_userFile->workability());
+        ui->spnSpin->setValue(m_userFile->spin());
+        ui->spnRecovery->setValue(m_userFile->recovery());
+        ui->spnPutting->setValue(m_userFile->putting());
         ui->spnLongestDrive->setValue(m_userFile->longestDrive());
         ui->spnLongestPutt->setValue(m_userFile->longestPutt());
         ui->spnDoubleEagles->setValue(m_userFile->doubleEagles());
@@ -39,18 +45,11 @@ void MainWindow::on_actionOpen_triggered()
         ui->spnDoubleBogeys->setValue(m_userFile->doubleBogeys());
 
         // enable the GUI elements
-        ui->spnXpEarned->setEnabled(true);
-        ui->spnXpSpent->setEnabled(true);
-        ui->spnXpBalance->setEnabled(true);
-        ui->spnLongestDrive->setEnabled(true);
-        ui->spnLongestPutt->setEnabled(true);
-        ui->spnDoubleEagles->setEnabled(true);
-        ui->spnEagles->setEnabled(true);
-        ui->spnBirdies->setEnabled(true);
-        ui->spnPars->setEnabled(true);
-        ui->spnBogeys->setEnabled(true);
-        ui->spnDoubleBogeys->setEnabled(true);
-        ui->tabWidget->setEnabled(true);
+        QList<QSpinBox*> spinboxes = ui->tabUser->findChildren<QSpinBox*>(QRegularExpression("spn.+"));
+        for (QSpinBox *spinBox : spinboxes)
+            spinBox->setEnabled(true);
+
+        // display the user file tab
         ui->tabWidget->setCurrentIndex(0);
 
     }
@@ -101,7 +100,6 @@ void MainWindow::on_actionOpen_Progress_File_triggered()
 
         // enable the necessary widgets
         ui->treeLegacyChallenges->setEnabled(true);
-        ui->tabWidget->setEnabled(true);
         ui->tabWidget->setCurrentIndex(1);
     }
     catch (std::string s)
