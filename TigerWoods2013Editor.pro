@@ -17,13 +17,17 @@ SOURCES += main.cpp\
         MainWindow.cpp \
     TigerWoodsUserFile.cpp \
     IO/FileIO.cpp \
-    IO/BaseIO.cpp
+    IO/BaseIO.cpp \
+    TigerWoodsProgressFile.cpp \
+    TigerWoodsTigerLegacyChallenge.cpp
 
 HEADERS  += MainWindow.h \
     TigerWoodsUserFile.h \
     winnames.h \
     IO/FileIO.h \
-    IO/BaseIO.h
+    IO/BaseIO.h \
+    TigerWoodsProgressFile.h \
+    TigerWoodsTigerLegacyChallenge.h
 
 FORMS    += MainWindow.ui
 
