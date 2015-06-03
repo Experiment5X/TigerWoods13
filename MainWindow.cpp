@@ -25,7 +25,6 @@ void MainWindow::on_actionOpen_triggered()
         m_userFile = new TigerWoodsUserFile(userFileIO, this);
 
         // update the GUI
-        setWindowTitle(m_userFile->name() + "'s User Info");
         ui->spnXpEarned->setValue(m_userFile->xpEarned());
         ui->spnXpSpent->setValue(m_userFile->xpSpent());
         ui->spnXpBalance->setValue(m_userFile->xpEarned() - m_userFile->xpSpent());
@@ -35,8 +34,20 @@ void MainWindow::on_actionOpen_triggered()
         ui->spnSpin->setValue(m_userFile->spin());
         ui->spnRecovery->setValue(m_userFile->recovery());
         ui->spnPutting->setValue(m_userFile->putting());
+        ui->spnRoundsPlayed->setValue(m_userFile->roundsPlayed());
+        ui->spnTotalScore->setValue(m_userFile->totalScore());
+        ui->spnAverageScore->setValue(m_userFile->averageScore());
+        ui->spnPuttsMade->setValue(m_userFile->madePutts());
+        ui->spnPuttsTotal->setValue(m_userFile->totalPutts());
+        ui->spnTotalDrives->setValue(m_userFile->totalDrives());
+        ui->spnTotalYardsDriven->setValue(m_userFile->totalYardsDriven());
+        ui->spnFIROpportunities->setValue(m_userFile->totalFIRAttempts());
+        ui->spnFIRs->setValue(m_userFile->totalFIRs());
+        ui->spnGIROpportunities->setValue(m_userFile->totalGIRAttempts());
+        ui->spnGIRs->setValue(m_userFile->totalGIRs());
         ui->spnLongestDrive->setValue(m_userFile->longestDrive());
         ui->spnLongestPutt->setValue(m_userFile->longestPutt());
+        ui->spnHolesInOne->setValue(m_userFile->holesInOne());
         ui->spnDoubleEagles->setValue(m_userFile->doubleEagles());
         ui->spnEagles->setValue(m_userFile->eagles());
         ui->spnBirdies->setValue(m_userFile->birdies());
