@@ -62,6 +62,8 @@ void MainWindow::on_actionOpen_triggered()
         // display the user file tab
         ui->tabWidget->setCurrentIndex(0);
 
+        ui->statusBar->showMessage("Loaded user file", 5000);
+
     }
     catch (std::string s)
     {
@@ -111,6 +113,8 @@ void MainWindow::on_actionOpen_Progress_File_triggered()
         // enable the necessary widgets
         ui->treeLegacyChallenges->setEnabled(true);
         ui->tabWidget->setCurrentIndex(1);
+
+        ui->statusBar->showMessage("Loaded progress file", 5000);
     }
     catch (std::string s)
     {
