@@ -28,12 +28,12 @@ void MainWindow::on_actionOpen_triggered()
         ui->spnXpEarned->setValue(m_userFile->xpEarned());
         ui->spnXpSpent->setValue(m_userFile->xpSpent());
         ui->spnXpBalance->setValue(m_userFile->xpEarned() - m_userFile->xpSpent());
-        ui->spnPower->setValue(m_userFile->power());
-        ui->spnAccuracy->setValue(m_userFile->accuracy());
-        ui->spnWorkability->setValue(m_userFile->workability());
-        ui->spnSpin->setValue(m_userFile->spin());
-        ui->spnRecovery->setValue(m_userFile->recovery());
-        ui->spnPutting->setValue(m_userFile->putting());
+        ui->sldrPower->setValue(m_userFile->power());
+        ui->sldrAccuracy->setValue(m_userFile->accuracy());
+        ui->sldrWorkability->setValue(m_userFile->workability());
+        ui->sldrSpin->setValue(m_userFile->spin());
+        ui->sldrRecovery->setValue(m_userFile->recovery());
+        ui->sldrPutting->setValue(m_userFile->putting());
         ui->spnRoundsPlayed->setValue(m_userFile->roundsPlayed());
         ui->spnTotalScore->setValue(m_userFile->totalScore());
         ui->spnAverageScore->setValue(m_userFile->averageScore());
@@ -56,9 +56,8 @@ void MainWindow::on_actionOpen_triggered()
         ui->spnDoubleBogeys->setValue(m_userFile->doubleBogeys());
 
         // enable the GUI elements
-        QList<QSpinBox*> spinboxes = ui->tabUser->findChildren<QSpinBox*>(QRegularExpression("spn.+"));
-        for (QSpinBox *spinBox : spinboxes)
-            spinBox->setEnabled(true);
+        setWidgetsEnabled<QSpinBox*>(ui->tabUser, true, "spn.+");
+        setWidgetsEnabled<QSlider*>(ui->tabUser, true, "sldr.+");
 
         // display the user file tab
         ui->tabWidget->setCurrentIndex(0);
@@ -117,4 +116,33 @@ void MainWindow::on_actionOpen_Progress_File_triggered()
     {
         QMessageBox::critical(this, "Error", QString("An error occurred while reading the progress file.\n") + QString::fromStdString(s));
     }
+}
+
+void MainWindow::on_sldrPower_valueChanged(int value)
+{
+    ui->lblPower->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrAccuracy_valueChanged(int value)
+{
+    ui->lblAccuracy->setText(QString::number(value));
+}
+void MainWindow::on_sldrWorkability_valueChanged(int value)
+{
+    ui->lblWorkability->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrSpin_valueChanged(int value)
+{
+    ui->lblSpin->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrRecovery_valueChanged(int value)
+{
+    ui->lblRecovery->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrPutting_valueChanged(int value)
+{
+    ui->lblPutting->setText(QString::number(value));
 }

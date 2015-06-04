@@ -28,10 +28,30 @@ private slots:
 
     void on_actionOpen_Progress_File_triggered();
 
+    void on_sldrPower_valueChanged(int value);
+
+    void on_sldrAccuracy_valueChanged(int value);
+
+    void on_sldrWorkability_valueChanged(int value);
+
+    void on_sldrSpin_valueChanged(int value);
+
+    void on_sldrRecovery_valueChanged(int value);
+
+    void on_sldrPutting_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
     TigerWoodsUserFile *m_userFile;
     TigerWoodsProgressFile *m_progressFile;
+
+    template <typename T>
+    static void setWidgetsEnabled(QWidget *parent, bool enabled, QString regex)
+    {
+        QList<T> widgets = parent->findChildren<T>(QRegularExpression(regex));
+        for (auto widget : widgets)
+            widget->setEnabled(enabled);
+    }
 };
 
 #endif // MAINWINDOW_H
