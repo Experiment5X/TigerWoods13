@@ -1287,8 +1287,22 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpen"/>
-    <addaction name="actionOpen_Progress_File"/>
+    <widget class="QMenu" name="menuUser">
+     <property name="title">
+      <string>User File</string>
+     </property>
+     <addaction name="actionOpen_2"/>
+     <addaction name="actionClose_2"/>
+    </widget>
+    <widget class="QMenu" name="menuProgress_File">
+     <property name="title">
+      <string>Progress File</string>
+     </property>
+     <addaction name="actionOpen_3"/>
+     <addaction name="actionClose"/>
+    </widget>
+    <addaction name="menuUser"/>
+    <addaction name="menuProgress_File"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -1301,14 +1315,29 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionOpen">
+  <action name="actionClose_User_Fle">
    <property name="text">
-    <string>Open User File</string>
+    <string>Close User Fle</string>
    </property>
   </action>
-  <action name="actionOpen_Progress_File">
+  <action name="actionOpen_2">
    <property name="text">
-    <string>Open Progress File</string>
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionOpen_3">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionClose_2">
+   <property name="text">
+    <string>Close</string>
    </property>
   </action>
  </widget>

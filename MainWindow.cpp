@@ -12,7 +12,36 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_actionOpen_triggered()
+void MainWindow::on_sldrPower_valueChanged(int value)
+{
+    ui->lblPower->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrAccuracy_valueChanged(int value)
+{
+    ui->lblAccuracy->setText(QString::number(value));
+}
+void MainWindow::on_sldrWorkability_valueChanged(int value)
+{
+    ui->lblWorkability->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrSpin_valueChanged(int value)
+{
+    ui->lblSpin->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrRecovery_valueChanged(int value)
+{
+    ui->lblRecovery->setText(QString::number(value));
+}
+
+void MainWindow::on_sldrPutting_valueChanged(int value)
+{
+    ui->lblPutting->setText(QString::number(value));
+}
+
+void MainWindow::on_actionOpen_2_triggered()
 {
     try
     {
@@ -71,7 +100,7 @@ void MainWindow::on_actionOpen_triggered()
     }
 }
 
-void MainWindow::on_actionOpen_Progress_File_triggered()
+void MainWindow::on_actionOpen_3_triggered()
 {
     try
     {
@@ -122,31 +151,14 @@ void MainWindow::on_actionOpen_Progress_File_triggered()
     }
 }
 
-void MainWindow::on_sldrPower_valueChanged(int value)
+void MainWindow::on_actionClose_triggered()
 {
-    ui->lblPower->setText(QString::number(value));
-}
+    // free all the progress file resources
+    delete m_progressFile;
+    m_progressFile = nullptr;
 
-void MainWindow::on_sldrAccuracy_valueChanged(int value)
-{
-    ui->lblAccuracy->setText(QString::number(value));
-}
-void MainWindow::on_sldrWorkability_valueChanged(int value)
-{
-    ui->lblWorkability->setText(QString::number(value));
-}
-
-void MainWindow::on_sldrSpin_valueChanged(int value)
-{
-    ui->lblSpin->setText(QString::number(value));
-}
-
-void MainWindow::on_sldrRecovery_valueChanged(int value)
-{
-    ui->lblRecovery->setText(QString::number(value));
-}
-
-void MainWindow::on_sldrPutting_valueChanged(int value)
-{
-    ui->lblPutting->setText(QString::number(value));
+    // remove all items from the tree widget and disable it
+    while (ui->treeLegacyChallenges->topLevelItemCount() > 0)
+        delete ui->treeLegacyChallenges->takeTopLevelItem(0);
+    ui->treeLegacyChallenges->setEnabled(false);
 }
