@@ -264,17 +264,6 @@ void TigerWoodsUserFile::setHolesInOne(int holesInOne)
     m_holesInOne = holesInOne;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 void TigerWoodsUserFile::readFile()
 {
     m_userFile->SetEndian(BigEndian);
