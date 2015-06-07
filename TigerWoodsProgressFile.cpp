@@ -1,17 +1,19 @@
 #include "TigerWoodsProgressFile.h"
 
-TigerWoodsProgressFile::TigerWoodsProgressFile(std::shared_ptr<BaseIO> progressFile, QObject *parent) :
+using namespace TigerWoods13;
+
+ProgressFile::ProgressFile(std::shared_ptr<BaseIO> progressFile, QObject *parent) :
     m_progressFile(progressFile), QObject(parent)
 {
     loadLegacyChallengeNames("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\legacy challenges.txt");
     readFile();
 }
-QList<TigerWoodsTigerLegacyChallenge *> TigerWoodsProgressFile::legacyChallenges() const
+QList<TigerLegacyChallenge *> ProgressFile::legacyChallenges() const
 {
     return m_legacyChallenges;
 }
 
-void TigerWoodsProgressFile::loadLegacyChallengeNames(QString fileName)
+void ProgressFile::loadLegacyChallengeNames(QString fileName)
 {
     // attempt to open the file for reading
     QFile legacyChallengesFile(fileName);
@@ -27,7 +29,7 @@ void TigerWoodsProgressFile::loadLegacyChallengeNames(QString fileName)
         QStringList challengeComponents = line.split(":");
 
         // construct the challenge object
-        TigerWoodsTigerLegacyChallenge *challenge = new TigerWoodsTigerLegacyChallenge(this);
+        TigerLegacyChallenge *challenge = new TigerLegacyChallenge(this);
         challenge->setSection(challengeComponents.at(0));
         challenge->setName(challengeComponents.at(1));
         challenge->setPartCount(challengeComponents.at(2).toInt());
@@ -38,11 +40,11 @@ void TigerWoodsProgressFile::loadLegacyChallengeNames(QString fileName)
     legacyChallengesFile.close();
 }
 
-void TigerWoodsProgressFile::readFile()
+void ProgressFile::readFile()
 {
     // read the tiger legacy challenge progress
     m_progressFile->SetPosition(0x24);
-    for (size_t i = 0; i < m_legacyChallenges.size(); i++)
+    for (int i = 0; i < m_legacyChallenges.size(); i++)
     {
         for (int partIndex = 0; partIndex < m_legacyChallenges.at(i)->partCount(); partIndex++)
         {

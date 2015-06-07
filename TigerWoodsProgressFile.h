@@ -13,21 +13,24 @@
 #include "IO/BaseIO.h"
 #include "TigerWoodsTigerLegacyChallenge.h"
 
-class TigerWoodsProgressFile : public QObject
+namespace TigerWoods13
+{
+class ProgressFile : public QObject
 {
     Q_OBJECT
 public:
-    TigerWoodsProgressFile(std::shared_ptr<BaseIO> progressFile, QObject *parent = 0);
+    ProgressFile(std::shared_ptr<BaseIO> progressFile, QObject *parent = 0);
 
-    QList<TigerWoodsTigerLegacyChallenge *> legacyChallenges() const;
+    QList<TigerLegacyChallenge *> legacyChallenges() const;
 
 private:
     std::shared_ptr<BaseIO> m_progressFile;
-    QList<TigerWoodsTigerLegacyChallenge*> m_legacyChallenges;
+    QList<TigerLegacyChallenge*> m_legacyChallenges;
 
     void loadLegacyChallengeNames(QString fileName);
 
     void readFile();
 };
+}
 
 #endif // TIGERWOODSPROGRESSFILE_H

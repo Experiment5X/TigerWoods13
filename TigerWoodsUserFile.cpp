@@ -1,270 +1,272 @@
 #include "TigerWoodsUserFile.h"
 
-TigerWoodsUserFile::TigerWoodsUserFile(std::shared_ptr<BaseIO> userFile, QObject *parent) :
+using namespace TigerWoods13;
+
+UserFile::UserFile(std::shared_ptr<BaseIO> userFile, QObject *parent) :
     m_userFile(userFile), QObject(parent)
 {
     readFile();
 }
 
-QString TigerWoodsUserFile::name() const
+QString UserFile::name() const
 {
     return m_name;
 }
 
-void TigerWoodsUserFile::setName(const QString &name)
+void UserFile::setName(const QString &name)
 {
     m_name = name;
 }
-int TigerWoodsUserFile::xpEarned() const
+int UserFile::xpEarned() const
 {
     return m_xpEarned;
 }
 
-void TigerWoodsUserFile::setXpEarned(int xpEarned)
+void UserFile::setXpEarned(int xpEarned)
 {
     m_xpEarned = xpEarned;
 }
-int TigerWoodsUserFile::xpSpent() const
+int UserFile::xpSpent() const
 {
     return m_xpSpent;
 }
 
-void TigerWoodsUserFile::setXpSpent(int xpSpent)
+void UserFile::setXpSpent(int xpSpent)
 {
     m_xpSpent = xpSpent;
 }
-int TigerWoodsUserFile::longestDrive() const
+int UserFile::longestDrive() const
 {
     return m_longestDrive;
 }
 
-void TigerWoodsUserFile::setLongestDrive(int longestDrive)
+void UserFile::setLongestDrive(int longestDrive)
 {
     m_longestDrive = longestDrive;
 }
-int TigerWoodsUserFile::longestPutt() const
+int UserFile::longestPutt() const
 {
     return m_longestPutt;
 }
 
-void TigerWoodsUserFile::setLongestPutt(int longestPutt)
+void UserFile::setLongestPutt(int longestPutt)
 {
     m_longestPutt = longestPutt;
 }
-int TigerWoodsUserFile::doubleEagles() const
+int UserFile::doubleEagles() const
 {
     return m_doubleEagles;
 }
 
-void TigerWoodsUserFile::setDoubleEagles(int doubleEagles)
+void UserFile::setDoubleEagles(int doubleEagles)
 {
     m_doubleEagles = doubleEagles;
 }
-int TigerWoodsUserFile::eagles() const
+int UserFile::eagles() const
 {
     return m_eagles;
 }
 
-void TigerWoodsUserFile::setEagles(int eagles)
+void UserFile::setEagles(int eagles)
 {
     m_eagles = eagles;
 }
-int TigerWoodsUserFile::birdies() const
+int UserFile::birdies() const
 {
     return m_birdies;
 }
 
-void TigerWoodsUserFile::setBirdies(int birdies)
+void UserFile::setBirdies(int birdies)
 {
     m_birdies = birdies;
 }
-int TigerWoodsUserFile::pars() const
+int UserFile::pars() const
 {
     return m_pars;
 }
 
-void TigerWoodsUserFile::setPars(int pars)
+void UserFile::setPars(int pars)
 {
     m_pars = pars;
 }
-int TigerWoodsUserFile::bogeys() const
+int UserFile::bogeys() const
 {
     return m_bogeys;
 }
 
-void TigerWoodsUserFile::setBogeys(int bogeys)
+void UserFile::setBogeys(int bogeys)
 {
     m_bogeys = bogeys;
 }
-int TigerWoodsUserFile::doubleBogeys() const
+int UserFile::doubleBogeys() const
 {
     return m_doubleBogeys;
 }
 
-void TigerWoodsUserFile::setDoubleBogeys(int doubleBogeys)
+void UserFile::setDoubleBogeys(int doubleBogeys)
 {
     m_doubleBogeys = doubleBogeys;
 }
-int TigerWoodsUserFile::power() const
+int UserFile::power() const
 {
     return m_power;
 }
 
-void TigerWoodsUserFile::setPower(int power)
+void UserFile::setPower(int power)
 {
     m_power = power;
 }
-int TigerWoodsUserFile::accuracy() const
+int UserFile::accuracy() const
 {
     return m_accuracy;
 }
 
-void TigerWoodsUserFile::setAccuracy(int accuracy)
+void UserFile::setAccuracy(int accuracy)
 {
     m_accuracy = accuracy;
 }
-int TigerWoodsUserFile::workability() const
+int UserFile::workability() const
 {
     return m_workability;
 }
 
-void TigerWoodsUserFile::setWorkability(int workability)
+void UserFile::setWorkability(int workability)
 {
     m_workability = workability;
 }
-int TigerWoodsUserFile::spin() const
+int UserFile::spin() const
 {
     return m_spin;
 }
 
-void TigerWoodsUserFile::setSpin(int spin)
+void UserFile::setSpin(int spin)
 {
     m_spin = spin;
 }
-int TigerWoodsUserFile::recovery() const
+int UserFile::recovery() const
 {
     return m_recovery;
 }
 
-void TigerWoodsUserFile::setRecovery(int recovery)
+void UserFile::setRecovery(int recovery)
 {
     m_recovery = recovery;
 }
-int TigerWoodsUserFile::putting() const
+int UserFile::putting() const
 {
     return m_putting;
 }
 
-void TigerWoodsUserFile::setPutting(int putting)
+void UserFile::setPutting(int putting)
 {
     m_putting = putting;
 }
-int TigerWoodsUserFile::roundsPlayed() const
+int UserFile::roundsPlayed() const
 {
     return m_roundsPlayed;
 }
 
-void TigerWoodsUserFile::setRoundsPlayed(int roundsPlayed)
+void UserFile::setRoundsPlayed(int roundsPlayed)
 {
     m_roundsPlayed = roundsPlayed;
 }
-int TigerWoodsUserFile::totalScore() const
+int UserFile::totalScore() const
 {
     return m_totalScore;
 }
 
-void TigerWoodsUserFile::setTotalScore(int totalScore)
+void UserFile::setTotalScore(int totalScore)
 {
     m_totalScore = totalScore;
 }
 
-float TigerWoodsUserFile::averageScore() const
+float UserFile::averageScore() const
 {
     return (float)m_totalScore / m_roundsPlayed;
 }
-int TigerWoodsUserFile::madePutts() const
+int UserFile::madePutts() const
 {
     return m_madePutts;
 }
 
-void TigerWoodsUserFile::setMadePutts(int madePutts)
+void UserFile::setMadePutts(int madePutts)
 {
     m_madePutts = madePutts;
 }
-int TigerWoodsUserFile::totalPutts() const
+int UserFile::totalPutts() const
 {
     return m_totalPutts;
 }
 
-void TigerWoodsUserFile::setTotalPutts(int totalPutts)
+void UserFile::setTotalPutts(int totalPutts)
 {
     m_totalPutts = totalPutts;
 }
-int TigerWoodsUserFile::totalDrives() const
+int UserFile::totalDrives() const
 {
     return m_totalDrives;
 }
 
-void TigerWoodsUserFile::setTotalDrives(int totalDrives)
+void UserFile::setTotalDrives(int totalDrives)
 {
     m_totalDrives = totalDrives;
 }
-int TigerWoodsUserFile::totalYardsDriven() const
+int UserFile::totalYardsDriven() const
 {
     return m_totalYardsDriven;
 }
 
-void TigerWoodsUserFile::setTotalYardsDriven(int totalYardsDriven)
+void UserFile::setTotalYardsDriven(int totalYardsDriven)
 {
     m_totalYardsDriven = totalYardsDriven;
 }
-int TigerWoodsUserFile::totalFIRAttempts() const
+int UserFile::totalFIRAttempts() const
 {
     return m_totalFIRAttempts;
 }
 
-void TigerWoodsUserFile::setTotalFIRAttempts(int totalFIRAttempts)
+void UserFile::setTotalFIRAttempts(int totalFIRAttempts)
 {
     m_totalFIRAttempts = totalFIRAttempts;
 }
-int TigerWoodsUserFile::totalFIRs() const
+int UserFile::totalFIRs() const
 {
     return m_totalFIRs;
 }
 
-void TigerWoodsUserFile::setTotalFIRs(int totalFIRs)
+void UserFile::setTotalFIRs(int totalFIRs)
 {
     m_totalFIRs = totalFIRs;
 }
-int TigerWoodsUserFile::totalGIRAttempts() const
+int UserFile::totalGIRAttempts() const
 {
     return m_totalGIRAttempts;
 }
 
-void TigerWoodsUserFile::setTotalGIRAttempts(int totalGIRAttempts)
+void UserFile::setTotalGIRAttempts(int totalGIRAttempts)
 {
     m_totalGIRAttempts = totalGIRAttempts;
 }
-int TigerWoodsUserFile::totalGIRs() const
+int UserFile::totalGIRs() const
 {
     return m_totalGIRs;
 }
 
-void TigerWoodsUserFile::setTotalGIRs(int totalGIRs)
+void UserFile::setTotalGIRs(int totalGIRs)
 {
     m_totalGIRs = totalGIRs;
 }
-int TigerWoodsUserFile::holesInOne() const
+int UserFile::holesInOne() const
 {
     return m_holesInOne;
 }
 
-void TigerWoodsUserFile::setHolesInOne(int holesInOne)
+void UserFile::setHolesInOne(int holesInOne)
 {
     m_holesInOne = holesInOne;
 }
 
-void TigerWoodsUserFile::readFile()
+void UserFile::readFile()
 {
     m_userFile->SetEndian(BigEndian);
 

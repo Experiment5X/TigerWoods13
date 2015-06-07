@@ -8,11 +8,13 @@
 
 #include "IO/BaseIO.h"
 
-class TigerWoodsUserFile : public QObject
+namespace TigerWoods13
+{
+class UserFile : public QObject
 {
     Q_OBJECT
 public:
-    TigerWoodsUserFile(std::shared_ptr<BaseIO> userFile, QObject *parent = nullptr);
+    UserFile(std::shared_ptr<BaseIO> userFile, QObject *parent = nullptr);
 
     QString name() const;
     void setName(const QString &name);
@@ -137,5 +139,6 @@ private:
 
     void readFile();
 };
+}
 
 #endif // TIGERWOODSUSERFILE_H

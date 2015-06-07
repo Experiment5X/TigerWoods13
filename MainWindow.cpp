@@ -51,7 +51,7 @@ void MainWindow::on_actionOpen_2_triggered()
 
         // parse the user file
         std::shared_ptr<FileIO> userFileIO = std::make_shared<FileIO>(filePath.toStdString());
-        m_userFile = new TigerWoodsUserFile(userFileIO, this);
+        m_userFile = new TigerWoods13::UserFile(userFileIO, this);
 
         // update the GUI
         ui->spnXpEarned->setValue(m_userFile->xpEarned());
@@ -111,12 +111,12 @@ void MainWindow::on_actionOpen_3_triggered()
 
         // parse the user file
         std::shared_ptr<FileIO> userFileIO = std::make_shared<FileIO>(filePath.toStdString());
-        m_progressFile = new TigerWoodsProgressFile(userFileIO, this);
+        m_progressFile = new TigerWoods13::ProgressFile(userFileIO, this);
 
         // populate the tree widget with the legacy progress
         QString prevChallengeSection = "";
         QTreeWidgetItem *curSectionItem = nullptr;
-        for (TigerWoodsTigerLegacyChallenge *challenge : m_progressFile->legacyChallenges())
+        for (auto challenge : m_progressFile->legacyChallenges())
         {
             // check to see if we need to create another section item
             if (challenge->section() != prevChallengeSection)

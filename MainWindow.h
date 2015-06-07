@@ -47,8 +47,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    TigerWoodsUserFile *m_userFile;
-    TigerWoodsProgressFile *m_progressFile;
+    TigerWoods13::UserFile *m_userFile;
+    TigerWoods13::ProgressFile *m_progressFile;
 
     template <typename T>
     static void setWidgetsEnabled(QWidget *parent, bool enabled, QString regex)

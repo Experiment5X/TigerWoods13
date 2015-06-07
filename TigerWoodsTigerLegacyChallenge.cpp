@@ -1,57 +1,59 @@
 #include "TigerWoodsTigerLegacyChallenge.h"
 
-TigerWoodsTigerLegacyChallenge::TigerWoodsTigerLegacyChallenge(QObject *parent) :
+using namespace TigerWoods13;
+
+TigerLegacyChallenge::TigerLegacyChallenge(QObject *parent) :
     QObject(parent)
 {
 }
 
-TigerWoodsTigerLegacyChallenge::TigerWoodsTigerLegacyChallenge(QString section, QString name, QList<bool> complete, QObject *parent) :
+TigerLegacyChallenge::TigerLegacyChallenge(QString section, QString name, QList<bool> complete, QObject *parent) :
     m_section(section), m_name(name), m_complete(complete), QObject(parent)
 {
     m_partCount = m_complete.size();
 }
 
-QString TigerWoodsTigerLegacyChallenge::name() const
+QString TigerLegacyChallenge::name() const
 {
     return m_name;
 }
 
-void TigerWoodsTigerLegacyChallenge::setName(const QString &name)
+void TigerLegacyChallenge::setName(const QString &name)
 {
     m_name = name;
 }
-QString TigerWoodsTigerLegacyChallenge::section() const
+QString TigerLegacyChallenge::section() const
 {
     return m_section;
 }
 
-void TigerWoodsTigerLegacyChallenge::setSection(const QString &section)
+void TigerLegacyChallenge::setSection(const QString &section)
 {
     m_section = section;
 }
-QList<bool> TigerWoodsTigerLegacyChallenge::complete() const
+QList<bool> TigerLegacyChallenge::complete() const
 {
     return m_complete;
 }
 
-void TigerWoodsTigerLegacyChallenge::setComplete(int partIndex, bool complete)
+void TigerLegacyChallenge::setComplete(int partIndex, bool complete)
 {
     m_complete.replace(partIndex, complete);
 }
 
-bool TigerWoodsTigerLegacyChallenge::fullyComplete() const
+bool TigerLegacyChallenge::fullyComplete() const
 {
     bool toReturn = true;
     for (bool complete : m_complete)
         toReturn = toReturn && complete;
     return toReturn;
 }
-int TigerWoodsTigerLegacyChallenge::partCount() const
+int TigerLegacyChallenge::partCount() const
 {
     return m_partCount;
 }
 
-void TigerWoodsTigerLegacyChallenge::setPartCount(int partCount)
+void TigerLegacyChallenge::setPartCount(int partCount)
 {
     m_partCount = partCount;
 

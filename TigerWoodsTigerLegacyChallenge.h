@@ -4,12 +4,14 @@
 #include <QObject>
 #include <QList>
 
-class TigerWoodsTigerLegacyChallenge : public QObject
+namespace TigerWoods13
+{
+class TigerLegacyChallenge : public QObject
 {
     Q_OBJECT
 public:
-    explicit TigerWoodsTigerLegacyChallenge(QObject *parent = 0);
-    TigerWoodsTigerLegacyChallenge(QString section, QString name, QList<bool> complete, QObject *parent = 0);
+    explicit TigerLegacyChallenge(QObject *parent = 0);
+    TigerLegacyChallenge(QString section, QString name, QList<bool> complete, QObject *parent = 0);
 
     QString section() const;
     void setSection(const QString &section);
@@ -33,5 +35,6 @@ private:
     int m_partCount;
     QList<bool> m_complete;
 };
+}
 
 #endif // TIGERWOODSTIGERLEGACYCHALLENGE_H
