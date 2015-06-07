@@ -15,11 +15,11 @@ CONFIG += c++11
 
 SOURCES += main.cpp\
         MainWindow.cpp \
-    TigerWoodsUserFile.cpp \
     IO/FileIO.cpp \
     IO/BaseIO.cpp \
-    TigerWoodsProgressFile.cpp \
-    TigerWoodsTigerLegacyChallenge.cpp
+    TigerWoods13/UserFile.cpp \
+    TigerWoods13/TigerLegacyChallenge.cpp \
+    TigerWoods13/ProgressFile.cpp
 
 HEADERS  += MainWindow.h \
     TigerWoodsUserFile.h \
@@ -27,7 +27,10 @@ HEADERS  += MainWindow.h \
     IO/FileIO.h \
     IO/BaseIO.h \
     TigerWoodsProgressFile.h \
-    TigerWoodsTigerLegacyChallenge.h
+    TigerWoodsTigerLegacyChallenge.h \
+    TigerWoods13/UserFile.h \
+    TigerWoods13/TigerLegacyChallenge.h \
+    TigerWoods13/ProgressFile.h
 
 FORMS    += MainWindow.ui
 

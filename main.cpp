@@ -1,6 +1,6 @@
 #include "MainWindow.h"
-#include "TigerWoodsUserFile.h"
-#include "TigerWoodsProgressFile.h"
+#include "TigerWoods13/UserFile.h"
+#include "TigerWoods13/ProgressFile.h"
 #include "IO/FileIO.h"
 
 #include <QApplication>

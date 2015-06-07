@@ -1,4 +1,4 @@
-#include "TigerWoodsTigerLegacyChallenge.h"
+#include "TigerLegacyChallenge.h"
 
 using namespace TigerWoods13;
 

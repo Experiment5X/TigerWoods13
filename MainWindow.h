@@ -9,8 +9,8 @@
 
 #include "IO/FileIO.h"
 #include "IO/BaseIO.h"
-#include "TigerWoodsUserFile.h"
-#include "TigerWoodsProgressFile.h"
+#include "TigerWoods13/UserFile.h"
+#include "TigerWoods13/ProgressFile.h"
 
 namespace Ui {
 class MainWindow;

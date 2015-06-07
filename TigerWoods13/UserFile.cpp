@@ -1,4 +1,4 @@
-#include "TigerWoodsUserFile.h"
+#include "UserFile.h"
 
 using namespace TigerWoods13;
 

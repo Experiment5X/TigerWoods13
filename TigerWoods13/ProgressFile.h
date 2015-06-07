@@ -11,7 +11,7 @@
 #include <memory>
 
 #include "IO/BaseIO.h"
-#include "TigerWoodsTigerLegacyChallenge.h"
+#include "TigerLegacyChallenge.h"
 
 namespace TigerWoods13
 {

@@ -1,4 +1,4 @@
-#include "TigerWoodsProgressFile.h"
+#include "ProgressFile.h"
 
 using namespace TigerWoods13;
 
