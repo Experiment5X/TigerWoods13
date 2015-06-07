@@ -86,6 +86,7 @@ void MainWindow::on_actionOpen_2_triggered()
 
         // enable the GUI elements
         setWidgetsEnabled<QSpinBox*>(ui->tabUser, true, "spn.+");
+        setWidgetsEnabled<QDoubleSpinBox*>(ui->tabUser, true, "spn.+");
         setWidgetsEnabled<QSlider*>(ui->tabUser, true, "sldr.+");
 
         // display the user file tab
@@ -161,4 +162,25 @@ void MainWindow::on_actionClose_triggered()
     while (ui->treeLegacyChallenges->topLevelItemCount() > 0)
         delete ui->treeLegacyChallenges->takeTopLevelItem(0);
     ui->treeLegacyChallenges->setEnabled(false);
+}
+
+void MainWindow::on_actionClose_2_triggered()
+{
+    delete m_userFile;
+    m_userFile = nullptr;
+
+    // reset all the widgets
+    QList<QSpinBox*> spinboxes = ui->tabUser->findChildren<QSpinBox*>(QRegularExpression("spn.+"));
+    for (QSpinBox *box : spinboxes)
+        box->setValue(0);
+
+    QList<QSlider*> sliders = ui->tabUser->findChildren<QSlider*>(QRegularExpression("sldr.+"));
+    for (QSlider *slider : sliders)
+        slider->setValue(35);
+    ui->spnAverageScore->setValue(0);
+
+    // disable all the widgets
+    setWidgetsEnabled<QSpinBox*>(ui->tabUser, false, "spn.+");
+    setWidgetsEnabled<QDoubleSpinBox*>(ui->tabUser, false, "spn.+");
+    setWidgetsEnabled<QSlider*>(ui->tabUser, false, "sldr.+");
 }

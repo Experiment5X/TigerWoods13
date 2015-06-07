@@ -4,8 +4,8 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QDoubleSpinBox>
 #include <memory>
-#include <QDebug>
 
 #include "IO/FileIO.h"
 #include "IO/BaseIO.h"
@@ -42,6 +42,8 @@ private slots:
     void on_actionOpen_3_triggered();
 
     void on_actionClose_triggered();
+
+    void on_actionClose_2_triggered();
 
 private:
     Ui::MainWindow *ui;
