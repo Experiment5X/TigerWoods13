@@ -34,7 +34,8 @@ HEADERS  += MainWindow.h \
     TigerWoods13/TigerLegacyChallenge.h \
     TigerWoods13/ProgressFile.h \
     TigerWoods13/TournamentFile.h \
-    TigerWoods13/GolferScoreRecord.h
+    TigerWoods13/GolferScoreRecord.h \
+    QTreeWidgetItemSorted.h
 
 FORMS    += MainWindow.ui
 
