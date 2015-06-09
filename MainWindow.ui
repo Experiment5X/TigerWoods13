@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>766</width>
-    <height>521</height>
+    <width>651</width>
+    <height>456</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1258,6 +1258,58 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tabTournament">
+       <attribute name="title">
+        <string>Tournament Midround</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTreeWidget" name="treeTournamentScores">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="headerDefaultSectionSize">
+           <number>75</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Index</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Address</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Total Score</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Unknown 1</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Unknown 2</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Unknown 3</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Unknown 4</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -1267,7 +1319,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>766</width>
+     <width>651</width>
      <height>21</height>
     </rect>
    </property>
@@ -1289,8 +1341,16 @@
      <addaction name="actionOpen_3"/>
      <addaction name="actionClose"/>
     </widget>
+    <widget class="QMenu" name="menuTournament_File">
+     <property name="title">
+      <string>Tournament File</string>
+     </property>
+     <addaction name="actionOpen"/>
+     <addaction name="actionClose_3"/>
+    </widget>
     <addaction name="menuUser"/>
     <addaction name="menuProgress_File"/>
+    <addaction name="menuTournament_File"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -1324,6 +1384,16 @@
    </property>
   </action>
   <action name="actionClose_2">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionClose_3">
    <property name="text">
     <string>Close</string>
    </property>

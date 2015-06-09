@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QList>
+#include <QDebug>
 
 #include <memory>
 
@@ -22,6 +23,8 @@ public:
 private:
     std::shared_ptr<BaseIO> m_tournamentFile;
     QList<GolferScoreRecord*> m_golferScores;
+    QList<int> m_puttCounts;
+    QList<float> m_yardsDriven;
 
     void readFile();
 };

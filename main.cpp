@@ -11,11 +11,11 @@
 
 int main(int argc, char *argv[])
 {
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
-    return a.exec();*/
+    return a.exec();
 
     /*std::shared_ptr<FileIO> progressFile = std::make_shared<FileIO>("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\Adam Tiger Legacy\\Finished Junior Years\\13-Progress");
     TigerWoodsProgressFile progressData(progressFile);
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
             qDebug() << "\t" << partComplete;
     }*/
 
-    std::shared_ptr<FileIO> tourFile = std::make_shared<FileIO>("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\Adam Tiburon Open\\Hole 3 Complete\\13-TourEvent0");
+    /*std::shared_ptr<FileIO> tourFile = std::make_shared<FileIO>("C:\\Users\\Adam\\Desktop\\Modding\\Tiger Woods 2013\\Adam Tiburon Open\\Hole 3 Complete\\13-TourEvent0");
     TigerWoods13::TournamentFile tournament(tourFile);
 
     // sort the golfers by their scores
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
           [](TigerWoods13::GolferScoreRecord *a, TigerWoods13::GolferScoreRecord *b) { return a->totalScore() < b->totalScore(); });
 
     for (auto golfer : golferScores)
-        qDebug() << "Index" << golfer->index() << "Score" << golfer->totalScore();
+        qDebug() << "Index" << golfer->index() << "Score" << golfer->totalScore();*/
 
     /*try
     {

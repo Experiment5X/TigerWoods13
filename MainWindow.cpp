@@ -184,3 +184,36 @@ void MainWindow::on_actionClose_2_triggered()
     setWidgetsEnabled<QDoubleSpinBox*>(ui->tabUser, false, "spn.+");
     setWidgetsEnabled<QSlider*>(ui->tabUser, false, "sldr.+");
 }
+
+void MainWindow::on_actionOpen_triggered()
+{
+    try
+    {
+        QString filePath = QFileDialog::getOpenFileName(this, "Find your 13-TournamentXXX file");
+        if (filePath.length() == 0)
+            return;
+
+        std::shared_ptr<FileIO> tournamentFile = std::make_shared<FileIO>(filePath.toStdString());
+        m_tournamentFile = new TigerWoods13::TournamentFile(tournamentFile);
+
+        // load the golfer stats info into the GUI
+        int i = 0;
+        for (TigerWoods13::GolferScoreRecord *golfer : m_tournamentFile->golferScores())
+        {
+            QTreeWidgetItemSorted *item = new QTreeWidgetItemSorted(ui->treeTournamentScores);
+            item->setText(0, QString::number(i));
+            item->setText(1, "0x" + QString::number(0x48 + i * 0x58, 16));
+            item->setText(2, QString::number(golfer->totalScore()));
+            item->setText(3, QString::number(golfer->unknown1()));
+            item->setText(4, QString::number(golfer->unknown2()));
+            item->setText(5, QString::number(golfer->unknown3()));
+            item->setText(6, QString::number(golfer->unknown4()));
+
+            i++;
+        }
+    }
+    catch (std::string s)
+    {
+        QMessageBox::critical(this, "Error", QString("An error occurred while reading the progress file.\n") + QString::fromStdString(s));
+    }
+}

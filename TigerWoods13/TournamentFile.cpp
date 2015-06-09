@@ -35,4 +35,32 @@ void TournamentFile::readFile()
 
         m_golferScores.append(record);
     }
+
+    // read the golfer score at the other location in the file
+    QList<int> playerScores;
+    m_tournamentFile->SetPosition(0x3454);
+    for (int i = 0; i < 18; i++)
+        playerScores.append(m_tournamentFile->ReadInt32());
+
+    // if the scores don't match then the file is corrupt
+    if (playerScores != m_golferScores.at(0)->scores())
+    {
+        qDebug() << "Player score mismatch!";
+    }
+
+    // read the putt counts
+    m_tournamentFile->SetPosition(0x349C);
+    for (int i = 0; i < 18; i++)
+        m_puttCounts.append(m_tournamentFile->ReadInt32());
+
+    // read the yards driven
+    m_tournamentFile->SetPosition(0x3A10);
+    for (int i = 0; i < 18; i++)
+    {
+        // check for uninitialized float value
+        float yardsDriven = m_tournamentFile->ReadFloat();
+        if (*(DWORD*)&yardsDriven == 0xCDCDCDCD)
+            yardsDriven = 0;
+        m_yardsDriven.append(yardsDriven);
+    }
 }

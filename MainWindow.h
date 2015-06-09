@@ -11,6 +11,9 @@
 #include "IO/BaseIO.h"
 #include "TigerWoods13/UserFile.h"
 #include "TigerWoods13/ProgressFile.h"
+#include "TigerWoods13/TournamentFile.h"
+
+#include "QTreeWidgetItemSorted.h"
 
 namespace Ui {
 class MainWindow;
@@ -45,10 +48,13 @@ private slots:
 
     void on_actionClose_2_triggered();
 
+    void on_actionOpen_triggered();
+
 private:
     Ui::MainWindow *ui;
     TigerWoods13::UserFile *m_userFile;
     TigerWoods13::ProgressFile *m_progressFile;
+    TigerWoods13::TournamentFile *m_tournamentFile;
 
     template <typename T>
     static void setWidgetsEnabled(QWidget *parent, bool enabled, QString regex)
