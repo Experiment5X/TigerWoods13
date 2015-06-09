@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     IO/BaseIO.cpp \
     TigerWoods13/UserFile.cpp \
     TigerWoods13/TigerLegacyChallenge.cpp \
-    TigerWoods13/ProgressFile.cpp
+    TigerWoods13/ProgressFile.cpp \
+    TigerWoods13/TournamentFile.cpp \
+    TigerWoods13/GolferScoreRecord.cpp
 
 HEADERS  += MainWindow.h \
     TigerWoodsUserFile.h \
@@ -30,7 +32,9 @@ HEADERS  += MainWindow.h \
     TigerWoodsTigerLegacyChallenge.h \
     TigerWoods13/UserFile.h \
     TigerWoods13/TigerLegacyChallenge.h \
-    TigerWoods13/ProgressFile.h
+    TigerWoods13/ProgressFile.h \
+    TigerWoods13/TournamentFile.h \
+    TigerWoods13/GolferScoreRecord.h
 
 FORMS    += MainWindow.ui
 
