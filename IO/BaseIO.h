@@ -70,6 +70,8 @@ public:
     void Write(wstring ws, bool nullTerminating = true);
     void Write(BYTE *buffer, DWORD len);
 
+    void Write(float f);
+
     // flush the io's buffer
     virtual void Flush() = 0;
 

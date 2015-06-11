@@ -271,6 +271,12 @@ void BaseIO::Write(BYTE *buffer, DWORD len)
     WriteBytes(buffer, len);
 }
 
+void BaseIO::Write(float f)
+{
+    DWORD d = *(DWORD*)&f;
+    Write(d);
+}
+
 void BaseIO::SwapEndian()
 {
     if (byteOrder == LittleEndian)
