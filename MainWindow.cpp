@@ -217,3 +217,48 @@ void MainWindow::on_actionOpen_triggered()
         QMessageBox::critical(this, "Error", QString("An error occurred while reading the progress file.\n") + QString::fromStdString(s));
     }
 }
+
+void MainWindow::on_actionSave_triggered()
+{
+    try
+    {
+        // update all of the values
+        m_userFile->setXpEarned(ui->spnXpEarned->value());
+        m_userFile->setXpSpent(ui->spnXpSpent->value());
+
+        m_userFile->setPower(ui->sldrPower->value());
+        m_userFile->setAccuracy(ui->sldrAccuracy->value());
+        m_userFile->setWorkability(ui->sldrWorkability->value());
+        m_userFile->setSpin(ui->sldrSpin->value());
+        m_userFile->setRecovery(ui->sldrRecovery->value());
+        m_userFile->setPutting(ui->sldrPutting->value());
+
+        m_userFile->setRoundsPlayed(ui->spnRoundsPlayed->value());
+        m_userFile->setTotalScore(ui->spnTotalScore->value());
+        m_userFile->setMadePutts(ui->spnPuttsMade->value());
+        m_userFile->setTotalPutts(ui->spnPuttsTotal->value());
+        m_userFile->setTotalDrives(ui->spnTotalDrives->value());
+        m_userFile->setTotalYardsDriven(ui->spnTotalYardsDriven->value());
+        m_userFile->setTotalFIRAttempts(ui->spnFIROpportunities->value());
+        m_userFile->setTotalFIRs(ui->spnFIRs->value());
+        m_userFile->setTotalGIRAttempts(ui->spnGIROpportunities->value());
+        m_userFile->setTotalGIRs(ui->spnGIRs->value());
+        m_userFile->setLongestDrive(ui->spnLongestDrive->value());
+        m_userFile->setLongestPutt(ui->spnLongestPutt->value());
+
+        m_userFile->setHolesInOne(ui->spnHolesInOne->value());
+        m_userFile->setDoubleEagles(ui->spnDoubleEagles->value());
+        m_userFile->setEagles(ui->spnEagles->value());
+        m_userFile->setBirdies(ui->spnBirdies->value());
+        m_userFile->setPars(ui->spnPars->value());
+        m_userFile->setBogeys(ui->spnBogeys->value());
+        m_userFile->setDoubleBogeys(ui->spnDoubleBogeys->value());
+
+        m_userFile->save();
+        ui->statusBar->showMessage("Saved user file", 5000);
+    }
+    catch (std::string s)
+    {
+        QMessageBox::critical(this, "Error", QString("An error occurred while saving the progress file.\n") + QString::fromStdString(s));
+    }
+}

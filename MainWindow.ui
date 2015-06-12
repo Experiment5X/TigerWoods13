@@ -1332,6 +1332,7 @@
       <string>User File</string>
      </property>
      <addaction name="actionOpen_2"/>
+     <addaction name="actionSave"/>
      <addaction name="actionClose_2"/>
     </widget>
     <widget class="QMenu" name="menuProgress_File">
@@ -1396,6 +1397,11 @@
   <action name="actionClose_3">
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
    </property>
   </action>
  </widget>

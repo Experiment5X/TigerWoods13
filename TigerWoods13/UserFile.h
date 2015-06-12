@@ -16,6 +16,9 @@ class UserFile : public QObject
 public:
     UserFile(std::shared_ptr<BaseIO> userFile, QObject *parent = nullptr);
 
+    // write the values back to the file
+    void save();
+
     QString name() const;
     void setName(const QString &name);
 

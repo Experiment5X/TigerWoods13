@@ -8,6 +8,48 @@ UserFile::UserFile(std::shared_ptr<BaseIO> userFile, QObject *parent) :
     readFile();
 }
 
+void UserFile::save()
+{
+    // write the skills
+    m_userFile->SetPosition(0x117C0);
+    m_userFile->Write((float)m_power / 100);
+    m_userFile->Write((float)m_accuracy / 100);
+    m_userFile->Write((float)m_workability / 100);
+    m_userFile->Write((float)m_spin / 100);
+    m_userFile->Write((float)m_recovery / 100);
+    m_userFile->Write((float)m_putting / 100);
+
+    // write the xp
+    m_userFile->SetPosition(0x117FC);
+    m_userFile->Write((DWORD)m_xpEarned);
+    m_userFile->Write((DWORD)m_xpSpent);
+
+    // write the stats
+    m_userFile->SetPosition(0x118D0);
+    m_userFile->Write((DWORD)m_roundsPlayed);
+    m_userFile->Write((DWORD)m_totalScore);
+    m_userFile->Write((DWORD)m_roundsPlayed);
+    m_userFile->Write((DWORD)m_madePutts);
+    m_userFile->Write((DWORD)m_totalPutts);
+    m_userFile->Write((DWORD)m_totalDrives);
+    m_userFile->Write((DWORD)m_totalYardsDriven);
+    m_userFile->Write((DWORD)m_totalFIRAttempts);
+    m_userFile->Write((DWORD)m_totalFIRs);
+    m_userFile->Write((DWORD)m_totalGIRAttempts);
+    m_userFile->Write((DWORD)m_totalGIRs);
+    m_userFile->Write((DWORD)m_longestDrive);
+    m_userFile->Write((DWORD)m_longestPutt);
+
+    m_userFile->SetPosition(0x11908);
+    m_userFile->Write((DWORD)m_holesInOne);
+    m_userFile->Write((DWORD)m_doubleEagles);
+    m_userFile->Write((DWORD)m_eagles);
+    m_userFile->Write((DWORD)m_birdies);
+    m_userFile->Write((DWORD)m_pars);
+    m_userFile->Write((DWORD)m_bogeys);
+    m_userFile->Write((DWORD)m_doubleBogeys);
+}
+
 QString UserFile::name() const
 {
     return m_name;
